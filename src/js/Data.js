@@ -13,7 +13,7 @@ export class Data {
 
     load() {
         return new Promise((resolve, reject) => {
-            setTimeout(() => resolve(this.data), 3000);
+            setTimeout(() => resolve(this.data), 1000);
         })
     }
 
