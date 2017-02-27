@@ -48,9 +48,7 @@ function renderThreeButtons(rowData) {
 }
 
 function renderButton(id, title, currentValue, setValue) {
-
     var active = (currentValue === setValue) ? "active" : "";
-
     return '<button class="ui ' + active + ' button" onclick=\'updateData(' + id + ',' + setValue + ')\'>' + title + '</button>';
 }
 
