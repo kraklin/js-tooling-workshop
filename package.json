@@ -24,5 +24,7 @@
       "babel": "babel src/js -d dist -w"
     }
   ],
-  "dependencies": {}
+  "dependencies": {
+    "semantic-ui-css": "^2.2.9"
+  }
 }
