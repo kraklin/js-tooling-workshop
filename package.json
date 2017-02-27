@@ -1,0 +1,13 @@
+{
+  "name": "js-workshop-tooling",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "repository": {},
+  "author": "Tomas Latal <latal.tomas@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-core": "^6.23.1",
+    "babel-preset-env": "^1.1.10"
+  }
+}
