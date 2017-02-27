@@ -1,6 +1,7 @@
 export class Table {
-    constructor(tableId) {
+    constructor(tableId, updateCallback) {
         this.tableId = tableId;
+        this.updateCallback = updateCallback;
     }
 
     renderTable(tableData) {
@@ -22,15 +23,17 @@ export class Table {
     }
 
     renderThreeButtons(rowData) {
-        return '<td class="center aligned"><div class="ui buttons">'
-            + this.renderButton(rowData.id, "Attend", rowData.isAttending, 1)
-            + this.renderButton(rowData.id, "Don't know", rowData.isAttending, -1)
-            + this.renderButton(rowData.id, "Not coming", rowData.isAttending, 0)
-            + '</div></td>';
+        let cell = $('<td class="center aligned"><div class="ui buttons">');
+        cell.append(this.renderButton(rowData.id, "Attend", rowData.isAttending, 1));
+        cell.append(this.renderButton(rowData.id, "Don't know", rowData.isAttending, -1));
+        cell.append(this.renderButton(rowData.id, "Not coming", rowData.isAttending, 0));
+        return cell;
     }
 
     renderButton(id, title, currentValue, setValue) {
-        var active = (currentValue === setValue) ? "active" : "";
-        return `<button class="ui ${active} button" onclick=\'updateData(${id},${setValue})\'>${title}</button>`;
+        let active = (currentValue === setValue) ? "active" : "";
+        let button = $(`<button class="ui ${active} button">${title}</button>`);
+        button.on("click",null, () => this.updateCallback(id,setValue));
+        return button;
     }
 }

@@ -7,7 +7,7 @@ import {Data} from './Data';
 
 
 let stats = new Stats();
-let table = new Table("#rooster");
+let table = new Table("#rooster", updateData);
 let data = new Data();
 
 const updateData = (id, attendance) => {
@@ -19,4 +19,6 @@ const updateView = (data) => {
     table.renderTable(data);
 }
 
-data.load().then((data) => updateView(data))
+export const start = () =>{
+    data.load().then((data) => updateView(data))
+}
