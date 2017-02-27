@@ -21,7 +21,8 @@
   },
   "scripts": [
     {
-      "babel": "babel src/js -d dist -w"
+      "babel": "babel src/js -d dist -w",
+      "webpack": "webpack"
     }
   ],
   "dependencies": {
