@@ -8,13 +8,12 @@ module.exports = {
     output: {
         path: './dist',
         filename: '[name].js'
-    } 
-    , module: {
+    }, 
+    module: {
         rules: [{
             test: /\.js$/,
             use: ['babel-loader']    
-        }
-        ]
+        }]
     }
 }
 

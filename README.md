@@ -7,7 +7,7 @@
 
 ## Webpack
 ### Add webpack to project
-`yarn add --dev webpack babel-loader`
+`yarn add --dev webpack babel-loader script-loader`
 
 ### Add webpack webserver
 `yarn add --dev webpack-dev-middleware webpack-dev-webserver`
