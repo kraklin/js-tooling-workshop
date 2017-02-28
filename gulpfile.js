@@ -8,26 +8,26 @@ var babel = require('gulp-babel'),
     del = require('del');
 
 gulp.task('clean-temp', function(){
-  return del(['dest']);
+  return del(['temp']);
 });
 
 gulp.task('es6-commonjs',['clean-temp'], function(){
   return gulp.src(['src/*.js','src/js/*.js'], {base: './src'})
     .pipe(babel())
-    .pipe(gulp.dest('dest/temp'));
+    .pipe(gulp.dest('temp'));
 });
 
 gulp.task('bundle-commonjs-clean', function(){
   return del(['dest/bundle']);
 });
 
-gulp.task('commonjs-bundle',['bundle-commonjs-clean','es6-commonjs'], function(){
-  return browserify(['dest/temp/index.js']).bundle()
+gulp.task('bundle-js',['bundle-commonjs-clean','es6-commonjs'], function(){
+  return browserify(['temp/index.js']).bundle()
     .pipe(source('app.js'))
     .pipe(buffer())
     .pipe(uglify())
     .pipe(rename('app.js'))
-    .pipe(gulp.dest("./dest/bundle"));
+    .pipe(gulp.dest("./temp/bundle"));
 });
 
 gulp.task('publish-static',function(){
@@ -35,7 +35,7 @@ gulp.task('publish-static',function(){
     .pipe(gulp.dest("./bundle"))
 });
 
-gulp.task('publish-app',['publish-static'],function(){
-  return gulp.src(["./dest/bundle/app.js"])
+gulp.task('publish-app',['publish-static', 'bundle-js'],function(){
+  return gulp.src(["./temp/bundle/app.js"])
     .pipe(gulp.dest("./bundle"))
 });
