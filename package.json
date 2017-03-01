@@ -19,12 +19,11 @@
     "webpack-dev-middleware": "^1.10.1",
     "webpack-dev-server": "^2.4.1"
   },
-  "scripts": [
+  "scripts": 
     {
       "babel": "babel src/js -d dist -w",
       "webpack": "webpack"
-    }
-  ],
+    },
   "dependencies": {
     "semantic-ui-css": "^2.2.9"
   }
