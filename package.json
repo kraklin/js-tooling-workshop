@@ -10,7 +10,6 @@
     "babel-core": "^6.23.1",
     "babel-preset-env": "^1.1.10"
   },
-  "scripts": [
+  "scripts": 
     {"babel" : "babel src/js -d dist -w"}
-  ]
 }
